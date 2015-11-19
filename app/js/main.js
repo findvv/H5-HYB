@@ -22,7 +22,7 @@ var App = React.createClass({
       showShare:true
     });
   },
-  hideShare:function(){
+  hideShareFun:function(){
     this.setState({
       showShare:false
     });
@@ -31,7 +31,7 @@ var App = React.createClass({
     return(
       <div className="wrap">
         <Loading />
-        <ShareFloat showShare={this.state.showShare} hideShare={this.hideShare}/>
+        <ShareFloat showShare={this.state.showShare} hideShare={this.hideShareFun}/>
         <Main showMain={this.state.showMain} showShare={this.showShare}/>
       </div>
     )
