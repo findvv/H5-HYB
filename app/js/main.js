@@ -13,15 +13,26 @@ var React = require('react'),
 var App = React.createClass({
   getInitialState:function(){
     return{
-      showMain:false
+      showMain:false,
+      showShare:false
     }
+  },
+  showShare:function(){
+    this.setState({
+      showShare:true
+    });
+  },
+  hideShare:function(){
+    this.setState({
+      showShare:false
+    });
   },
   render:function(){
     return(
       <div className="wrap">
         <Loading />
-        <ShareFloat />
-        <Main showMain={this.state.showMain}/>
+        <ShareFloat showShare={this.state.showShare} hideShare={this.hideShare}/>
+        <Main showMain={this.state.showMain} showShare={this.showShare}/>
       </div>
     )
   }
