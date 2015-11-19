@@ -32,7 +32,14 @@ module.exports = React.createClass({
     }
   },
   toComment:function(){
-    window.location.href="http://m.sohu.com/cm/556409993/";
+    if (canClick) {
+      window.location.href="http://m.sohu.com/cm/556409993/";
+    }
+  },
+  showShare:function(){
+    if (canClick) {
+      this.props.showShare();
+    }
   },
   render:function(){   
     let newClass = this.props.showPage3?'page3':'page3 pageHide';
@@ -71,7 +78,7 @@ module.exports = React.createClass({
             <img src={baseUrl+"30.png"} alt="" className="e8"/>
             <div className="e9 gg">
               <img src={baseUrl+"30.jpg"} alt="" className="f1" onClick={this.toComment}/>
-              <img src={baseUrl+"31.jpg"} alt="" className="f2" onClick={this.props.showShare}/>
+              <img src={baseUrl+"31.jpg"} alt="" className="f2" onClick={this.showShare}/>
               <img src={baseUrl+"31.png"} alt="" className="f3"/>
               <p><span>策划/蓬勃 琳超</span><span>设计/阿连</span><span>制作/张兆翔</span></p>
             </div>

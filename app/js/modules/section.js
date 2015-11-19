@@ -40,6 +40,11 @@ module.exports = React.createClass({
   playMusic:function(num){
     var that = this;
     switch(num){
+      case 1:
+        that.refs.music2.pause();
+        that.refs.music2.currentTime = 0;
+        that.refs.music1.play();
+        break;
       case 2:
         that.refs.music1.pause();
         that.refs.music1.currentTime = 0;
@@ -78,12 +83,15 @@ module.exports = React.createClass({
     $$('body').on('swipeUp',function() {
       if (canAnimate) {
         canAnimate = false;
-        let nav = that.state.nav;
+        let nav = that.state.nav;        
         if (nav!=0) {
           nav+=1;
         }
         if (nav>7) {
           nav = 7;
+        }
+        if (nav == 7) {
+          canClick = true;
         }
         if (nav == 2) {
           that.setState({
